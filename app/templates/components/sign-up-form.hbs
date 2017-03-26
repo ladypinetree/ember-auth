@@ -1,4 +1,7 @@
-{{email-input email=credentials.email}}
+<!-- email input should not belong to sign up form because we will need to reuse import
+  DO NOT NEST THIS COMPONENT -->
+  {{email-input email=credentials.email}}
+<!-- is this where we are binding email input from form to credentials value in this form -->
 {{password-input password=credentials.password}}
 {{password-confirmation-input password=credentials.passwordConfirmation}}
 

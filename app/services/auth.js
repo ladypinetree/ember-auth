@@ -1,6 +1,10 @@
 import Ember from 'ember';
 import { storageFor } from 'ember-local-storage';
 
+//domain and browser specific storage
+//gets cleared when close browser and not when you reload the page
+// NO MORE SIGN OUT/ SIGN IN TO TEST
+
 export default Ember.Service.extend({
   ajax: Ember.inject.service(),
   credentials: storageFor('auth'),
@@ -27,6 +31,15 @@ export default Ember.Service.extend({
         },
       },
     })
+
+    // this should have been
+    // signIn (credentials) {
+    //   return this.get('ajax').post('/sign-in', {
+    //     data: { credentials },
+    //   })
+    //   but the handlebars template defined passwordConfirmation
+    // and not password_confirmation so the credentials have to be defined
+
     .then((result) => {
       this.get('credentials').set('id', result.user.id);
       this.get('credentials').set('email', result.user.email);

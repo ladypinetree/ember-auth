@@ -2,6 +2,7 @@ import Ember from 'ember';
 
 export default Ember.Route.extend({
   auth: Ember.inject.service(),
+  //same as writing Ember.inject.service('auth')
   flashMessages: Ember.inject.service(),
 
   actions: {
